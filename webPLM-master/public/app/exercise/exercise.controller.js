@@ -769,7 +769,6 @@
       canvasHeight = canvasWidth;
 
       canvas.init(canvasElt, canvasWidth, canvasHeight, draw);
-
       window.addEventListener('resize', resizeCanvas, false);
     }
 

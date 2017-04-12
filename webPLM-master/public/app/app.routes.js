@@ -17,6 +17,12 @@
         controller: 'Home',
         controllerAs: 'home'
       })
+	 .state('commentary', {
+        url: '/ui/commentary',
+        templateUrl: 'assets/app/commentary/commentary.html',
+        controller: 'Commentary',
+        controllerAs: 'commentary'
+      })
       .state('signIn', {
         url: '/ui/signIn',
         templateUrl: 'assets/app/sign-in/sign-in.html',

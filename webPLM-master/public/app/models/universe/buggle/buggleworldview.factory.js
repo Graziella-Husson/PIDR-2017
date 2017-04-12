@@ -95,6 +95,7 @@
     }
 
     function draw(canvas, buggleWorld) {
+	
       var i, j;
       var buggleID;
 
@@ -116,6 +117,7 @@
           drawBuggle(buggle, cell);
         }
       }
+      console.log(ctx);
     }
 
     function drawCell(cell) {
