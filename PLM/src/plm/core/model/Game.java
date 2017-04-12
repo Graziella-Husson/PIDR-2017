@@ -117,7 +117,7 @@ public class Game implements IWorldView {
 	};*/
 
 	public static final String [] lessonsName = new String[] { // WARNING, keep ChooseLessonDialog.lessons synchronized
-		"lessons.description.SandBox"
+		"lessons.description.SandBox","lessons.description.Piece","lessons.description.Couleurs","lessons.description.Faim"
 	};
 
 	public static final ProgrammingLanguage JAVA =       new LangJava(false);
