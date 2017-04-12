@@ -1,0 +1,20 @@
+<aside class="left-off-canvas-menu">
+  <profile></profile>
+  <ul class="off-canvas-list">
+    <li>
+      <a ui-sref="home"><i class="fi-home">&nbsp;</i><span translate>Switch lesson</span></a>
+    </li>
+  </ul>
+  <switch-exercise ng-if="navigation.isInLesson()"></switch-exercise>
+  <ul class="off-canvas-list">
+    <li>
+      <label translate>Other links</label>
+    </li>
+    <li>
+      <a onclick="$('#bugReportModal').foundation('reveal', 'open');"><i class="fi-alert">&nbsp;</i><span translate>Report a bug</span></a>
+    </li>
+    <li>
+      <a><i class="fi-mail">&nbsp;</i><span translate>Contact us</span></a>
+    </li>
+  </ul>
+</aside>

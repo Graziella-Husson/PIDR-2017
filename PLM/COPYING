@@ -1,0 +1,146 @@
+Copyright (c) 2008-2013. 
+The PLM Team: Martin Quinson, Gérald Oster and others.
+(see the git logs for the exact authorship of each file).
+
+
+The PLM software was written internally by the team. This software is
+distributed under the GNU general public license version 3 (GPLv3).
+
+The pedagogical material distributed with the PLM is covered both by
+the GPLv3 license (mainly for the included code) and by the CC-BY-SA
+license (mainly for the other media files). But the exact boundary
+here between the source code and the media is left as an exercise to
+the reader, so this material is distributed under both licenses for
+sake of simplicity.
+
+The GPLv3 license can be found in the archive under the name
+LICENSE-GPL-3. The CC-BY-SA license can be found online:
+http://creativecommons.org/licenses/by-sa/3.0/
+
+
+The whole artwork is free content, licenced under CC-BY-SA, GPL, LGPL
+and/or CC0-public domain. Some parts were done by us, other parts were
+borowed from free collections. The specific license and origin of each
+files is listed below.
+
+
+=========================================================================
+
+The artwork we did ourselves is distributed under the CC-BY-SA license. 
+ img/BuggleQuestBack.png
+ img/BuggleQuestBETA.png
+ img/log.png
+ img/edit_leftwall.png
+ img/edit_baggle.png
+ img/edit_topwall.png
+ img/lightbot_f1.png 
+ img/lightbot_f2.png
+ img/lightbot_noop.png
+ img/world_arrays.svg
+ img/world_bat.svg
+ img/world_buggle.svg
+ img/world_hanoi.png
+ img/world_sorting.png
+
+ img/btn-reset.png is a mashup of mine between btn-start.png (CC-BY-SA) and
+ http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/run-rebuild.png
+ (LGPL-2.1). The result can be used under either licence.
+ 
+ Several exercises provide screenshot of PLM itself to help the
+ student. These images are naturally CC-BY-SA too.
+
+=========================================================================
+
+We borrowed the following icons, that are CC-BY-SA too:
+
+* The bunny and egg in BuggleQuest universe come from:
+  plm/universe/bugglequest/ui/egg.png     http://openclipart.org/detail/93979/
+  plm/universe/bugglequest/ui/rabbit.png  http://openclipart.org/detail/23052/
+* Buttons:
+  img/btn-demo.png:       http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/games-solve.png
+  img/btn-switch-exo.png: http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/code-class.png
+  img/btn-debug-step.png: http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/debug-step-instruction.png
+  img/btn-debug.png       http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/go-next-context.png
+  img/btn-start.png       http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/media-playback-start-8.png
+  img/btn-stop.png        http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/media-playback-stop-8.png
+  img/btn-load-lesson.png http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/address-book-new-3.png
+  img/btn-switch-lesson.png http://apps.carleton.edu/campus/library/bridge_icons/
+* light for lightbot:
+  img/lightbot_light.png  http://openiconlibrary.sourceforge.net/gallery2/?./Icons/actions/help-hint.png
+  img/world_lightbot.png  (same file)
+=========================================================================
+
+The following icons are LGPL:
+
+* We borrowed several of them to the nuvola icon theme for KDE 3.x 
+  img/btn-alert-off.png:   nuvola/32x32/actions/irkickoff.png 
+  img/btn-alert-on.png:    nuvola/32x32/actions/irkickflash.png
+
+  img/console_delete.png:  nuvola/22x22/actions/edit_remove.png
+  img/console_add.png:     nuvola/22x22/actions/edit_add.png
+  img/console_refresh.png: nuvola/22x22/actions/reload_page.png
+
+  img/edit_colors.png:     nuvola/32x32/actions/colorize.png
+  img/edit_text.png:       nuvola/32x32/apps/applixware.png
+
+  img/lightbot_forward.png nuvola/32x32/actions/up.png
+  img/lightbot_left.png    nuvola/32x32/actions/1leftarrow.png
+  img/lightbot_right.png   nuvola/32x32/actions/1rightarrow.png
+  img/lightbot_jump.png    nuvola/32x32/actions/2uparrow.png
+  img/lightbot_light.png   nuvola/32x32/actions/ledyellow.png
+
+  img/menu-locale.png:     nuvola/32x32/apps/locale.png
+
+=========================================================================
+
+The following images come from the LibreOffice icon set. They are thus
+MPL-1.1 | GPL-3+ | LGPL-3+
+
+  img/edit_lineadd.png     cmd/lc_insertrows.png
+  img/edit_linedel.png     cmd/lc_deleterows.png
+  img/edit_coladd.png      cmd/lc_insertcolumns.png
+  img/edit_coldel.png      cmd/lc_deletecolumns.png
+  
+=========================================================================
+
+The following logos are GPLv2:
+ img/busyicon/*: (gnome) http://openiconlibrary.sourceforge.net/gallery2/?./Icons/animations/process-working.png
+
+ img/world_turtle.png : stolen to the kturtle project, that is GPLv2+
+
+=========================================================================
+
+The logos of the programming languages are certainly free, even if I
+didn't dig for their exact licence.
+
+img/lang_java.png
+img/lang_javascript.png 
+img/lang_python.png
+img/lang_ruby.png
+img/lang_scala.png
+
+=========================================================================
+
+Public domain images (CC0 PD)
+
+* img/focus_* These images were retrieved from http://openclipart.org/
+              even if I didn't write down the exact URL for them.
+* img/trophy.png         http://openclipart.org/detail/48937/trophy-by-sheikh_tuhin	     
+* img/world_baseball.png http://openclipart.org/detail/76927/baseball2-by-shokunin
+
+=========================================================================
+
+The following images are believed to be free, even if I cannot
+remember where they come from. We should maybe play safe and replace
+them. But as you can see from the rest of the project, we are
+better programmers than designers... You are welcome if you can help.
+
+* src/lessons/sort/pancake/img/world_pancake.png 
+  It was retrieved from 
+  http://omgwtflols.deviantart.com/art/Pixel-Art-Pancakes-with-syrup-298700868
+  It seems rather free, but the exact license is not known.
+* img/world_lesson.png
+  I cannot remember where it comes from. It looks very similar to the
+  logo for education applications in KDE so I guess it's ok. And since
+  I'm planning at removing the whole concept of lessons, it's probably
+  not worth digging any further on this one.

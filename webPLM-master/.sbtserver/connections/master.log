@@ -1,0 +1,7 @@
+New log file opened at Sun May 15 13:50:26 CEST 2016 by 4690@linux.home
+Taking next connection to: 45954
+New client attempting to connect on port: 46846-45954
+  Address = /192.168.1.28:45954
+This client on port 46846 has uuid 466ad389-207a-408a-b19a-6e56a51b8e7e configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-466ad389-207a-408a-b19a-6e56a51b8e7e
+Taking next connection to: 45954

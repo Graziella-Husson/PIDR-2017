@@ -1,0 +1,31 @@
+{
+  "name": "web-PLM-eclipse",
+  "version": "0.1.0",
+  "description": "WebPLM",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt-cli": "~0.1.13",
+    "bower": "~1.3.12"
+  },
+  "devDependencies": {
+    "yo":  "~1.3.3",
+    "grunt-angular-gettext": "^2.0.1",
+    "grunt-contrib-jasmine": "^0.8.2"
+  },
+  "scripts": {
+    "test": "activator \"test-only *Spec\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MatthieuNICOLAS/webPLM.git"
+  },
+  "author": "Matthieu NICOLAS",
+  "license": "GNU AGPL",
+  "bugs": {
+    "url": "https://github.com/MatthieuNICOLAS/webPLM/issues"
+  },
+  "homepage": "https://github.com/MatthieuNICOLAS/webPLM"
+}

@@ -1,0 +1,783 @@
+20151010: 2.6
+
+  The Long Awaited release.
+
+  * Improved translations:
+    - French: missions and engine at 100%
+    - Brazilian: missions at 100%, engine at 65%
+    - Chinese: engine at 39%
+  * Engine:
+    - Ask loudly before pushing anything to the remote servers
+      This fixes http://bugs.debian.org/772026
+    - Switch embeeded scala compiler to version 2.11.4
+  * Worlds:
+    - #284: Turtle, Buggle: Better message when mixing pens and brushes
+    - Hanoi: Allows for problems with 3+ pegs and multiple stacks
+    - Buggle: Sensible names for well known colors when diffing worlds
+  * Pedagogical content:
+    - #410: Fix my usage of "teach" vs. "learn" in English
+    - #240: SlugSnail: add false leads to avoid cheaters
+    - #229: Poucet: Split the exercise in two. Both request to write
+      two loops. The external loop is always a do/while ("until
+      found").  The inner loop in the first one is a simpler for loop
+      while the second exercise request the inner loop to also be a
+      do/while (because of the corridors of differing lenghts)
+    - InterleavedHanoi,SplitHanoi[123]; LinearHanoi,LinearTwinHanoi;
+      TricolorHanoi[123]; CyclicHanoi; IterativeHanoi: New exercises 
+      to work on the decomposition of recursive problems.
+    - Move the Moria exercise to the last position in welcome lesson.
+      It is ways harder than the other ones.
+    - #104: Instructions: hint about brushUp/brushDown
+    - #428: Instructions: typo in english
+    - New exercise, searching for the second biggest value in array
+    - #433: New exercise: BubblePancake [Tydax]
+    - #447: Make Dave and localization work together in Python
+  * Internal organization:
+    - Automatically check for classical errors in [!python] and such
+    - New package in welcome lesson for summative exercises
+  * Buggle Editor:
+    - New commands: add/del line or column.
+
+20141031: Release 2.5
+
+  The Halloween Release.
+  
+  * Improved translations:
+    - French: mission and engine back at 100%
+    - Brazilian: missions at 58%
+  * Engine:
+    - #292: Check the user's input before submitting a feedback
+    - #304: Stop user's program's or demo's execution if the user 
+      switches to another exercise or lesson.
+    - #395: Correctly remove the files that should be when reverting
+      or failing an exercise (both in local and remote repositories)
+    - #389: Allow fullscreen on Mac OSX
+    - #394: Display a waiting dialog when exiting
+    - #263: Also interpret language tags in hints, not only missions
+    - #401: Remove non-needed HumanLangListeners
+    - Greatly improve the coverage of our unit tests.
+  * Worlds:
+    - #286: Turtle, Buggle: document where (0,0) is
+    - #220: Buggle: Improve doc of isOverBaggle(), isCarryingBaggle()
+  * Pedagogical content:
+    - #323: turtleart.Kerr40: new exercise
+    - #397: GnomeSort: align mission text with code
+    - #296: TraversalByColumn: document where (0,0) is
+    - #239: CourseForest: get stick in water, not moving anymore
+    - #405: LoopStairs: Make French python bindings fit the templating
+    - #406: Lander101: unclear mission text wrt stepping the simulation
+    - #409: LoopWhile: additional reference to "About this world" menu
+
+20141009: Release 2.4.11
+
+  Git and TurtleWorld's equality should both be working now :)
+
+  * Improved translations:
+    - Brazilian Portuguese: Missions at 54% despite content changes
+  * Engine:
+    - #224: If the execution is interrupted, the exercise is failed
+    - #380: Disable creative mode when switching the exercise
+    - Lessons: Prevent users from accessing broken lessons and add tests
+      to detect them.
+    - GitSpy: Fix a bug which overwrote the current exercise's files
+      for the current programming language by the current exercise's files
+      for the last result's programming language
+    - Git: Refactor Git related code to fix progression loss bugs
+  * Worlds:
+    - Turtle: equal() was not detecting when lines are overlapping
+      with no common extremities. We now detect when one line is
+      strictly included within another one, but not when they are
+      intermixed (yet). Fix #381.
+  * Pedagogical content:
+    - #378, #393: French typo
+    - #383: Fix the name of the Scala entity
+    - #387: Fix a broken link when run from the jar
+    - #388: The Pancake #0 is actually on top (fix mission text)
+
+20140930: Release 2.4.10
+
+  * Engine:
+    - Add several tests to check ExerciseTemplated's behavior.
+    - #262: sensible error message when putting code out of any method
+      in Scala
+    - Add a test suite to gather together all tests.
+    - #359: Add world-specific info to debug and feedback.
+      SortingWorld uses that to tell which random instance was used.
+  * Pedagogical content:
+    - #372: scala code for Koch and Crab exercises were inverted.
+    - #373: Fix entity name for the dutch flag
+
+20140929: Release 2.4.9
+
+  Recursion lesson is usable again, sorry for the inconvenience.
+  (we really need more tests, grmbl)
+
+  * Engine:
+    - Lesson constructor waits for all init threads' completion
+  * Worlds:
+    - Turtle: equal() was too permissive after recent work on merging
+      lines that were too picky. Now take the world name into account
+      in equality, so that we can switch from an empty world to 
+      another empty world in the UI.
+  * Pedagogical content:
+    - recursion: remove the largest fractals that were too heavy
+    - #366: recursion.spiralUse: add another nice picture
+
+20140928: Release 2.4.8
+
+  * Engine:
+    - Use appropriately the executionError field instead of
+      compilationError to store entities' run time errors.
+  * Worlds:
+    - ConsWorld: new subclass of BatWorld dedicated to recursive lists.
+  * Pedagogical content:
+    - recursion.cons: new lesson on recursive lists (17 challenges)
+    - #349, #355 : French typo
+    - #356: write 'one', not '1' (was too similar to 'l') (fix #356)
+    - #365: SelectionSort: don't sort the last cell, it's already done
+
+20140920: Release 2.4.7
+
+  Python is usable again, sorry for the inconvenience.
+
+  * Engine: 
+    - Don't even compare the worlds when there was a compilation error
+      Prevents python code from failing after reaching the solution.
+  * Worlds:
+    - Turtle: Merge lines that are in line with each other before
+      comparing equality. You can now walk half of a segment, the half
+      will be removed. You can walk to your destination in large
+      amount of very small lines that are all depicting a long line,
+      parts will be merged together. I hope that now, that damn
+      world equality detection will not return false negative anymore!
+      This fixes #338 and #339 (which are not exact duplicates).
+    - Turtle: Show the superflous and missing shapes when the amount
+      of shapes does not match.
+    - #344 Turtle: Display the coordinates of the mouse.
+      That helps reading the differences between worlds, if any.
+    - #309 Bat: Edit the python template in order to test correctly
+      the exercise's winning conditions instead of passing it.
+  * Pedagogical content:
+    - #341: French typo
+    - TurtleArt: rename challenges from Bill Kerr to credit the author.
+      http://billkerr2.blogspot.fr/2009/08/40-maths-shapes-challenges.html
+
+20140917: Release 2.4.6
+
+  * Worlds:
+    - #329: Buggle: allow exercise to specify that Buggle's direction
+      is irrelevant to world equality tests. Use it for all maze exos.
+  * Pedagogical content:
+    - #332, #333: French typo
+    - #330: Lander.*: Make Segment usable in every exercise, even if
+      they are not absolutely mandatory to solve the problem.
+    - #320: indexOfValue: align the template onto the mission text
+    - #334: Lander1: we are only supposed to write a method body in
+      python while that's a random code chunk in other languages.
+      Adapt the mission text to that fact.
+    - #335: Array123: Add some tests so that testing if 3 is in the
+      array is not enough to solve the problem.
+    - #331: New turtle art figure, original by a student.
+    - PictureMono: more space between patterns so that V are visible
+
+20140916: Release 2.4.5
+
+  * Improved translations:
+    - Brazilian Portuguese: Missions at 51% despite content changes
+    - French: Missions translation at 100% (Engine's lagging behide)
+  * Engine:
+    - #294: Import package Color in every exercise, so that students
+      may use it even if they don't have to in a given exercise.
+    - #327: Update our embeeded java compiler to OpenJDK7
+  * Worlds:
+    - #291: TurtleWorld: align equals() and diffTo() on what's equal.
+      That is, equals() now ignore the turtle color while diffTo() now
+      reports differences in turtle position.
+    - #298: TurtleWorld: Drop duplicate shapes before comparing, so
+      that it still matches if the only difference is that you don't 
+      duplicate the same segments than the correction.
+    - #236: Make sure that Left() and Right() are detected as errors
+      even in Scala that gives a meaning to these names.
+    - #272: Bat: Clone the arrays passed as parameter to the user code
+      to ensure that the user don't mess with our precious data.
+  * Pedagogical content:
+    - #299, #307: French typo
+    - #303: No need to draw the same thing twice
+    - turtleart.Flower2: New picture, proposed by a student last year.
+    - #242: Moria: Forces the use of while loops by making the word
+      too uneven for forloops, and by adding more buggles.
+    - #247: ScalaWallFindFollowMazeEntity was in wrong package, breaking demo.
+    - #305: ShortestPathMaze: fix mission to match world's expectations
+    - #273: FlowerPot: don't add a buggle manually, the map contains one
+
+20140912: Release 2.4.4
+
+  * Engine: 
+    - #257: used to write the bad information when passing an exercise
+      placed on the top of a sub-menu, resulting in the DONE mark not
+      being retrieved when loading the session afterward.
+  * Worlds:
+    - #280: Buggles: Don't display the error dialog more than once when
+      dropping the baggle that you don't have.
+  * Pedagogical content:
+    - #274: BDR: citation of Java instead of [!theLang] in mission
+    - #289: indexOfMaxValue: add a table with all negative numbers to
+      catch people initializing maxValue = 0
+    - #248: Misleading mission text in French
+    - #285: TurtleArt with 20 sides should not be called Polygon15
+
+20140911: Release 2.4.3
+
+  * User Interface:
+    - Add the public branch name to the feedbacks to ease reproducing 
+      the issues.
+  * Engine:
+    - #257: loading sessions from git was sometimes loosing DONE marks
+    - #267: record a git event when the student reads a tip
+    - #265: Provide now the PLM's version number when interacting with the server
+  * Pedagogical content: further fixing students' issues
+    - #237, #252: typo in French
+    - #246, #259: Lessons about mazes': make the templating mechanism explicit
+    - #255: IndexOfValue: world and function renamed to match with the instructions
+    - #251: Fizz Buzz: correct the solution to match the instructions
+
+20140909: Release 2.4.2
+
+  * Engine:
+    - Reduce the load to the github servers by not pushing more often
+      than once every 30mn (or when the client quits). The PLM-data
+      repository was disabled by github robots due to the excessive
+      load. We don't want it to happen again...
+  * Improved translations:
+    - Brazilian Portuguese: Missions at 45%
+  * Pedagogical content: fixing the issues opened by our students.
+    - #221: fix templating to now show crude details to youngsters
+    - #218, #225, #227: typos in French
+    - #226: Course: nice error message when running more than asked
+    - #228: CourseForest: nice error message when running more than asked
+    - #230: Course*: forbid backward() too. forward() must be called.
+    - #232, #233: Methods: show the code calling goAndGet() in languages
+            allowing methods to be embeeded within methods (scala/python)
+            Should be more robust to students misuses now.
+
+20140905: Release 2.4.1
+
+  Soon in production, last chance to iron out the bugs found on time.
+
+  * User Interface:
+    - Students can explain their problem in a phrase when requesting
+      for help (contributing to #208, but the teacher cannot answer yet)
+  * Engine:
+    - Save the error message also when it compiles but diverges (fix #213)
+
+20140901: Release 2.4
+
+  Let's get ready for the Big Show of this year.
+  
+  * Improved translations:
+    - Brazilian Portuguese: Missions at 39% despite content changes
+    - French: Engine and Missions translation back to 100%
+  * User Interface:
+    - Switch from the now unmaintained jsyntaxpane to RSyntaxpaneArea 
+      (fix #191).
+    - Switching users now works without restarting anything (fix #189)
+    - Kill the cloud session export feature: git superseeds that.
+    - Allow the students to provide imediate feedback on the exercises
+      they just passed.
+    - Restore the feature where the students can ask for the help of
+      their teacher, once they have registered their identity to the
+      PLM-server. Also, the PLM-server now gives a much better
+      interface for the teacher.
+  * Pedagogical content:
+    - welcome: move the BDR after the races so that students know
+      about variables when attempting them (fix #106).
+  * Internal organization:
+    - Move the logic related to a given programming language to a
+      central class. This should make it easier to add new languages.
+
+20140821: Release 2.4-beta1
+
+  Close to the release, but not there yet.
+  
+  * Improved translations:
+    - Brazilian Portuguese: Now at 35% [Fred Maranhao]
+  * User Interface:
+    - Make it possible to copy/paste the secret session ID from the
+      about dialog, so that the students can manually pass it to their 
+      teachers. Not as convenient as it ought to be, but it works.
+    - Display a big fat warning when switching to C: that's still
+      experimental, and not everything works for now. They're warned.
+  * Pedagogical content:
+    - welcome.array.maxvalue.Extrema: find min and max values
+      [Valentin Giannini]
+    - welcome.array.golomb.Golomb: compute the Nth of the surprising
+      Golomb sequence [Valentin Giannini]
+    - welcome.array.island.Island: small game with arrays of integers
+    - sort.pancake.CohenPancake: Cohen's Algorithm for burned pancakes
+    - lander.*: Integrate properly and port to any supported languages.
+    
+  * Still missing for the release:
+    - French and Brasilian translations should be updated and completed
+    - Switching identity is still broken (see #189)
+
+20140724: Release 2.4-alpha1
+
+  This is an alpha release. Things are not ready for release, but we
+  need more feedback to track and fix the problems.  Use it at own
+  risk, but please report all issue so that we can hunt them down.
+
+  * New and improved translations:
+    - Brazilian Portuguese: 25% of all missions [Fred Maranhao]
+    - Italian: Full engine + Welcome lesson [Vinnie Costante]
+  * User Interface:
+    - user data are now saved in a git, and automatically synchronized
+      on github. [Cédric Huguenin, Mathieu Morainville]
+    - Add C as a programming language [Valentin Giannini]
+      Most exercises were ported, but that's still a bit experimental.
+    - Kill the twitter spy. That's pure evil (fix #125)
+    - The feedback is now reported as github issues [Cédric Huguenin]
+    - Add a little menu to switch human language (fix #110)
+    - The error message now have the right number also on Windows.
+      #42 was not fixed on this platform yet. [Cédric Huguenin]
+    - Rewamp the feedback reporting dialog box
+    - Unclutters the UI: changing the buggle color is useless
+  * Pedagogical content:
+    - lander.*: new lesson on lunar landing [Paul Brauner]
+      Only working in Java for now, somehow experimental.
+    - welcome.bat.bool2.fizzBuzz: new (classical Fizz Buzz word game)
+    - Various proofreadings on mission texts (FR&EN)
+
+20131113: Release 2.3
+
+  * LectureChooser: fix preferred size to the MainFrame one (fix #118)
+  * AboutDialog: display the license and ChangeLog too
+  * TurtleWorld: better error message when the amount of lines differs
+  * TurtleWorld: new builtins to hide()/show() the turtle.
+  * PancakeWorld: The larger pancake is getStackSize()-1
+  * PancakeWorld: avoid ../ in the icon path: doesn't work in jarfiles
+  * recursion.DragonCurve1: slight mission text improvement
+  * recursion.SquareKoch: new exercise (variation over the Koch idea)
+  * recursion.PentaKoch: new exercise (another variation of Koch curve)
+  * recursion.HexaKoch: new exercise (yet another Koch curve)
+  * recursion.Crab: new exercise (another L-system: the Lévy C curve)
+  * sort.dutchflag: mention about the existing colors in the doc
+  * sort.dutchflag: allow to play with the mouse through drag and drop
+  * recursion.hanoi: builtin getRadius(slot): radius of top-most disk
+  * recursion.hanoi: allow to play with the mouse through drag and drop
+  * MainFrame: Implement a "Save a picture" feature, useful in turtleart
+  * welcome.MethodsArgs.py: compare directions without relying on
+    their name to avoid l10n issues (fix #122)
+  * As usual, fix some typos in the French translation
+
+20130930: Release 2.2.7
+
+  * recursion.spiralUse: rewrite to leverage the creative mode,
+    so that students don't spend too much time seeking for the reward.
+  * recursion.tree: make the color changing robust to negative steps
+  * recursion.tree: forbid teleporting 
+    This was used by some students to make the method idempotent.
+  * recursion.sierpinski: rewrite to simplify the code to be written
+  * recursion.hanoi: Simplify by explicitely passing the index of the
+    unused peg to the recursive function.
+  * TurtleWorld: synchronize to avoid a concurent modification when a
+    shape is added while we are computing the toString() of the world
+  * sort.dutchflag: New universe/exercise on the Dutch Flag Sorting
+  * sort.pancake: Correctly reset the move count on need
+  * sort.insertion: fix path to img after recent package reorg
+  * recursion.koch: give one color per side to ease the understanding
+  * sort.CocktailSort2: don't use ++ but += 1 in pseudocode
+
+20130924: Release 2.2.6
+
+  * SortingView: display the value on the left of temporal view, not
+    the index
+  * TurtleArt: force a newline every 5 exercises as it does not work
+    well with Java7 otherwise.
+  * TurtleArt.Flower: new exercise (provided by a student :)
+  * GnomeSort: fix a bug in the correction, where we stay at i=0 when
+    there is no previous pot instead of moving forward.
+  * TurtleWorld.equals&diffTo: synchronized on shapes to avoid issues
+    when the stop is pressed, for example
+  * TurtleWorld: order the points in each segment so that the line
+    (ab, cd) is detected as equal to (cd, ab)
+  * TurtleWorld.diffTo: i18n and improve error messages
+  * recursion.Circle: kill exercise. It is superseeded by turtleart.
+  * recursion.Star: kill exercise. It is superseeded by turtleart.
+  * recursion.tree: rework to make it easier to understand
+    - each level is given its own color
+    - we provide a subtree() that is correct (but the colors) to ease
+      the debugging of user's code
+  * As usual, fix a bunch of typos in the French translation
+
+20130916: Release 2.2.5: SortingWorld needs *more* polishing.
+
+  * Align equals() and diffTo() of sortedWorld to avoid false negatives
+  * Internationalize and translate the error messages of SortedWorld
+  * sort.Bubble3: there is no 'break' in scala
+  * Color the statusbar in red when a world is running so that people
+    notice that there is more than one world.
+  * SortingWorld: give large worlds a reduced delay so that people
+    don't wait for the perf world too much even if they don't click
+
+20130916: Release 2.2.4: SortingWorld also needs polishing.
+
+  * Disable the "help me" button if the appengine is disabled
+  * Document the existing colors in Buggle&Turtle worlds
+  * Update "About world" dialog's title changed on Human lang switches
+  * Change buggle.setColor to setBodyColor so that people used to logo
+    don't use it  to change the brush color.
+  * Compare turtle worlds with an upsilon to avoid false negatives.
+  * Fix an error in the pseudocode of CombSort
+  * Fix a bunch of typos in the French translations.
+  * sorting world: represent values as letters so that they don't get
+    mixed with indexes. 
+
+20130912: Release 2.2.3: Let's start adding new bu^Wfeatures again.
+
+  * Let every interactive control issue the source code doing the same
+    thing when they are clicked, so that the students can copy/paste.
+    Thanks to Laurent Guittet for suggesting this change, I love it.
+  * Buggle: Translate the direction names, too
+  * TurtleWorld: add a new clear() primitive that clears the sheet
+  * New feature: import/export session to the cloud.
+    You don't have to struggle with a bunch of zip files anymore.
+  * Rewamp the ExerciseFailedDialog to be more user friendly. Its
+    title is less demotival, it hints about how to fix the issue, and
+    the textual diff (that can be big and ugly) is hidden by default.
+  
+  * BuggleWorld: dropping a baggle was possible even if you had none
+  * welcome.BlueTicket: Fix typo in French
+  * BatEntity: more informative error message when an exception is raised
+  * FeedbackDialog: should not be modal to enable copy/paste
+  * maze.island: move the initial positions to make cheating harder
+  * maze.shortestpath: also translate the helper methods in scala and
+    python
+  * maze.shortestpath: put the distance on every cell, not just until
+    we found the buggle. Otherwise, the student must do exactly the
+    same traversal, which is not part of the spec, making it harder.
+  * Search windows directories first as the user.home property cannot
+    be trusted here at Telecom Nancy.
+  * welcome.basic.meth: reword the mission to make clear that the
+    code will get called automatically.
+  * Don't remove runner threads too early from their set so that
+    "Stop" still find them to stop them (fix #108)
+  * welcome.array.has271: improve the mission text
+  * welcome.traversal.*: fix the java and scala templating
+  * welcome.variable: speak about != that is handy here
+  
+20130910: Release 2.2.2: the 2 cts release.
+
+  * welcome.LoopCourse: specify that the colors get updated automatically
+  * welcome.NearHundred: fix french translation (was plainly wrong)
+  * welcome.SlugHunting: align templating and mission: isFacingTrail must be copied
+  * welcome.Variables: scala mandates an initial value (fix #109)
+    plus various small improvements
+  * Unify all Dave messages (marking functions that are forbidden in a
+    given exercise -- like setPos in maze exercises), to ensure that
+    they are properly translated despite the fact that gettext don't
+    dig into scala and python files for string to translate.
+  * Specify a working font for plain text to help the poor Mac users
+  * welcome.RunHalf: fix the scala templating
+  * welcome.FlowerPot: fix the french translation (growFlowers with a s)
+  * FeedbackDialog: reset the text on each invocation
+  * welcome.MethodsArgs: Fix a faulty copy/paste in scala prototypes
+  * welcome.LoopFor: Fix the scala syntax of for loops
+  * welcome.RunHalf: the description and the given condition did not match
+
+20130908: Release 2.2.1: C'mon, dudes. Break that one if you dare.
+
+  * Allow a creative mode, perfectly adapted to open LOGO exercises.
+    The world is never reset nor compared to the "expected" output.
+    
+  * Fix the dist build to not take all files copied by eclipse (fix #101)
+  * welcome.PictureMono*: fix the templating of run() (fix #102)
+  * welcome.Instructions: Fix a translation error (fix #103)
+  * welcome.slugTracking: Mention also in scala and python how to test
+    whether the ground color is green (fix #104)
+  * Bat templating didn't even compile in Java and Scala, oops (fix #105)
+  * turmite.hello: fix mission text: left=2; right=8
+  * welcome.Poucet: specify how intersection cells must be counted
+  * welcome.LoopStairs: say that there is no need to manually fiddle
+    with the colors. 
+
+20130830: Release 2.2. The funny times are over
+
+  * Rebrand JLM into PLM (Programmer's Learning Machine)
+  * Turtles: Allow for hints on segment sizes
+  * Turtle.circle(): New primitive to draw circles directly.
+  * New lesson turtleart on the classical Logo geometric figures
+  * Upgrade our twitter4j dependency to use the new twitter API 1.1
+    Twitter dropped support for the 1.0 API a while ago.
+  * Drop the identi.ca spy. It does not work since the upstream move
+    from status.net to pump.io, and I fail fixing it.
+  * Drop our prototypal jabber chat dialog. It was not activated
+    because it's not adapted: student only use it to try to cheat and
+    get easy answers. A forum would be better. Students are
+    authenticated, and the messages moderated (France IOI does that)
+  * Build a plm-light jarfile, without scala and python dependencies.
+    These langs remain usable if the deps are independently installed.
+  * Specify a sain font as default to help Mac users (fix #100)
+
+20130820:
+  * RELEASE 2.1, the 100th day.
+  * Introduce Scala as a new programing language (version 2.10+ required)
+  * Port all exercises to scala.
+  * Change turnLeft()/turnRight() to left()/right() in buggles & turtles
+  * Translate all builtins of buggles, turtles and sorts to French:
+    It is now possible to write avance() instead of forward()
+  * Review all translations for uniformity and to iron out some typos
+  * Test the compilation process in our JUnit tests, for Java and Scala.
+  * Mark many more strings for translation in the engine.
+  * Allow [!java]...[/!] constructs in mission texts to adapt to progLang
+  * In debug mode, all adaptations of all progLangs are displayed, with
+    a color code for each. This was mandatory with a third main progLang
+  * Partially document the black magic fueling ExerciseTemplatingEntity 
+    Erk, this class is based on ... inventive hacks ;)
+  * Property jlm.display.fontsize sets the size of the mission texts
+    (default: 10px; must be valid in a CSS)
+  * MissionEditorApp: little application to edit the mission texts with
+    realtime rendering after applying our pseudo-markdown directives
+  * lessons/welcome/methods/picture/PictureMono*: new exercises on drawing, 
+    but without the color so that it can come early in the learning
+    process, when we don't have methods parameters yet
+  * lessons/welcome/methods/flowerpot/*: two new exercises training on
+    methods (and decomposition)
+  * New lib/jsyntaxpane.jar, from debian package fixing some upstream bugs
+    - Contextual menu now works, as well as Ctrl-Z/Ctrl-Y, etc
+
+20130804:
+  * RELEASE 2.0, the revolutionary night.
+  * Remove the array world. It was not helping very much when compared
+    to the bat world.
+  * Use '' to get ' in translated strings to please MessageFormat.
+  * Pythonize the documentation of all universes
+  * add a button to lessonChooser to load lessons from disk
+  * Disable the step-by-step mode when stopping or swichting
+    the lesson or the exercise (fix #1)
+  * Editor: kill buggles that are in outer space after world resizing.
+  * Disable JavaScript, it's really not ready for the big night.
+  * Update our version of jsyntaxpane to get a fully working jar file.
+
+20130730:
+  * Pythonize new exercises
+  * Retranslate everything back to 100% in French
+  * Various cosmetics, small refactoring and little bug fixes
+  * Lesson navigator: Display which exercise are passed in which language
+  * Entity.isSelected() returns whether /this/ is selected in the UI
+  * Change Buggle.pickUpBaggle() to pickupBaggle() for consistency
+  * ExerciseTemplated: Trim leading spaces of non-python templates
+  * Fix BuggleView for non-square worlds (Fix: #83)
+  * Implement a graphical lesson chooser (Fix: #19)
+  * Rewrite and integrate all of the baseball exercises
+  * Give the baseball universe an historical view, as for sorting one
+  * PancakeView: Reimplement from scratch; can now be played with mouse
+  * Split hanoi towers and the turmites out in their own lessons
+  * Remove the meta lesson. It was not done, seemed difficult to
+    finish, and complicated the code of the universes. (Fix: #2)
+
+20130720:
+  * Integrate the pancake exercises into the sorting lesson
+  * New pancake exercise about implementing Gates' algorithm
+  * 1 more exercise about the while loop: Moria
+  * 2 more exercises about variables: Big Buggles's Race (1&2)
+  * 3 more exercises about the for loop: Stairs, Course and CourseForest
+  * 1 more exercise about the do/while loop: Poucet
+  * Better integrate the slug hunting exercises; add new one (on parameters)
+
+20130710: 
+  * Fix the temporal view of the sorting world (plus various cleanups)
+  * Allow to provide feedback easily. One click to open the dialog
+    window, type your text, validate, and it's automatically saved
+    with an http POST request.
+  * Properly select the current exercise in the lesson navigator
+  * Save the currently used programming language in the property file
+  * Current exercise gets saved in zip files and reselected when loading
+  * Speeds initialization by directly building everything in the right
+    locale instead of building it with no locale, and then updating it
+  * Progress spys (twitter/identica) get controled through properties
+  * Default values of properties get saved to local file to ease their
+    discover and tuning by users
+
+20130705:
+  * RELEASE 1.99
+  * Pythonize all lessons: maze, recursion, sort and bat/string
+  * Fix: demo mode in python was without delay
+  * print() in python was not playing well with graphical console
+  * Update French translation of missions: back to 100%
+
+20130621:
+  * Improve the BuggleWorld I/O and the BuggleWorldEditor:
+    - better detection and error messages of invalid map files
+    - every world's characteristic can be edited in the editor
+    - buggles are read from/saved into world files
+  * Update all existing worlds on disk to this format
+  * Speedup the lesson loading with a cache of answer worlds:
+    - If a relevant .map file exists, don't execute the answer entity
+    - If not, save the .map file after execution for the next time
+
+20130616:
+  * RELEASE 1.98
+  * Squeeze a bit our sources so that we can package it for Debian
+  * Add a logo to the distribution (img/logo.png)
+  * List the exact license of every image used in COPYING, and replace
+    the ones for which we lost the license on the way. JLM is now
+    perfectly clean wrt the licensing legal consideration.
+  * BatEntities now work within the unit tests too (fix #67)
+  * Integrate the bat exercise using integer arrays into the welcome
+    lesson (fix #21)
+  * Welcome lesson ported to python, both code and missions (fix: #89)
+
+20130531:
+  * Try harder to find a path where we can save our data
+
+20130530:
+  * Make sure that jarfiles compiled with Java 6 also work with Java 7
+
+20130529a:
+  * Really kill jung in the source code too so that distributed jar
+    files actually work -- sorry.
+
+20130529:
+  * Reintroduce the student progression listeners. It was turned off
+    for the debugging process, but that shouldnt be part of a released
+    version.
+
+20130528:
+  * New lesson navigator based on JTree (fix #71)
+  * Some better looking icons, with known licenses
+  * Basic testing infrastructure (fix #8)
+    It ensures that python entities manage to solve the Java worlds. 
+    This could be extended in many way, including:
+     - The java entity is not compiled, so there is no compilation test
+     - Bat exercises are too specific to be tested this way.
+    But at least, we have a testing infrastructure!
+  * Exception raised in python code (including syntax error) are now
+    correcly handled (fix #66 and #78)
+  * Basic i18n infrastructure allowing to translate the user interface (fix #76)
+  * Kill the ability to have more than one view per world (fix #35)
+  * Save the session before switching exo/lesson to not loose student's edits (fix #45)
+
+20130517:
+  * Package baseball exercises in their own directories
+  * Add a control panel for the Pancake Worlds ( raw & burned )
+
+20130516:
+  * Add an icon depicting the programming language in the status bar
+  * Various polishing of the exercises in Python
+  * Fix issue #64: Buggle interactive controls are now properly
+    initialized
+  * Package maze, welcome, lightbot, sort and bat.string1 and recursion exercises in their own directories
+  * Refresh the french translation
+  * Add a control panel for the Sorting World
+  * Start porting bat exercises to python
+  * Port hanoiWorld to python
+
+20130515:
+  * Huge python cleanup:
+    - various cleanups, code factorization and bug fixes
+    - Create or improve the bindings of Turtle, Sorting and Buggle
+      worlds
+    - Port many exercises to python, testing that the bindings are
+      sufficients, and [partially] rewriting the mission text to that
+      extend. The templates are not sufficient yet for absolutely all
+      exercises, but many of them are. 
+    - Fix line number computation in error messages coming from python
+    - If python is the default language, use the python entity to
+      compute the answer. Note that it still fails for some exercises.
+    - Add back the jruby jar file, as jython needs it to access POSIX
+  * Merge both views of sorting worlds, toward code simplification
+  * Rewrite most sorting exercises mission texts after recent splitup
+    of our mega exercise into several ones with one entity only each
+  * Refresh the french translation
+  * Simplify Random Mouse exercise, fix the demo of Pledge algorithm
+  * Add a combobox to switch to next exercise in "success" dialog
+  * Add an interactive way to change the buggle color and brush color
+  * Baseball exercise of SMN can now be played with more than 2
+    players per base
+
+20130416:
+  * Kill several seamingly good ideas that complicated the code base:
+    - aliased source files: student must keep them synchronized
+      manually now. We may want to reintroduce this at some point?
+    - Java code that cannot be compiled. This would have been useful
+      only for user-provided text files, but we don't use it now.
+    - uneditable source files. The student will see all files passed
+      to the compiler, now. This was never used in production
+    - inconditional static rewriting patterns to apply to the source
+      code. People should change the code in their source directly :)
+    - lessons cannot be sequential anymore. Forbidding pupils to
+      attempt the exercise in the order they want is not in the JLM
+      way of style anyway.
+    - exercises cannot have more than one kind of exercise. This was
+      introduced to have all sorting exercises at once, but this was
+      split in several exercises because the SortingView was gone amok.
+  * Simplify a bit the way external lesson files are loaded
+  * Remove a bunch of unused dependencies on external jars.
+    The distribution jar is now only half as big only (still 20M).
+  * Request a confirmation from the user (through a dialog) before
+    reverting the exercise, that was a mean trap...
+
+20130328:
+  * Merge all code (and wiki) from last year's students
+  * Accept a pull request from J-Bastian, with a new lesson (SMN) and a
+    bunch of bug fixes.
+  * Various little bug fixes.
+
+20120319:
+  * Minor update on build process
+
+20120318:
+  * Allow jlm://<lesson>/<exo> links in mission texts
+
+20120116:
+  * Add an ant target to generate a source tgz (for Debian packaging)
+
+20120110:
+  * Do not even try to compile the Java sources if we were asked to
+    used another language, such as Python.
+    (Fixes #48: Python source code not used if some java code provided)
+
+20111201:
+  * Port some more welcome exercises to Python. 
+    The translations should be updated to appear again.
+  * Port all sorting exercises to Python
+
+20111013:
+  * Fix a bug in python that were due to an extra space added in front
+    of the body. Damn python indentation freaks.
+  * Add a debug mode to JLM, to see more infos on problem
+  * Add a trap spitting a lot of info when issue #42 (line numbers are
+    shifted) occures. I need more info to understand where it comes
+    from.
+  * Fix the array exercises (there were bugged and not properly
+    integrated into po4a)
+  * various improvements to the missions and their french translations
+  * Remove the "clear session" menu entry. Too dangerous.
+  * Graphical consistency between menu choosing the human language,
+    and the one choosing the programming language
+  * Show in about box where the session gets saved to avoid NFS hell
+  * Various typos and little errors hunted down by Pierre-Etienne and JC
+  * Improve shortest path exercise by not removing distance marks, so
+    that students can compare their computation with the correct one
+
+20111006e:
+  * Allow to code in python, javascript or ruby
+  * Definitely kill the linearity of lessons (combobox removed)
+  * Load the lessons on need only (and save them separately from each
+    other)
+  * Cleanup the way identica and twitter get informed of student
+    progress
+  * Textual display of what's wrong when the world is not what's
+    expected
+  * implement the world equality for logo
+  * Allow to have lectures, ie non-interactive exercises
+  * Improved turmite track, with a specific view displaying the step
+
+20110909:
+  * New exercise track on turmites
+  * Enforce that the buggles cannot move to outer space with
+    setPos(), setX(), setY() nor peek outer space with getCell()
+
+20110907:
+  * Add a new lesson navigator allowing to break the lesson linearity
+  * Use identi.ca in addition to twitter to push the success of students

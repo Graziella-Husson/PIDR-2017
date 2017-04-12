@@ -1,0 +1,25 @@
+sudo: false
+language: scala
+scala:
+  - 2.11.4
+jdk:
+  - oraclejdk8
+install:
+  - npm install
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+script:
+  - sbt "test-only *Spec"
+  - grunt test
+notifications:
+  recipients:
+    - martin.quinson@loria.fr
+    - gerald.oster@loria.fr
+    - matthieu.nicolas@loria.fr
+  email:
+    on_success: change
+    on_failure: always
+  template:
+    - "%{repository}/%{branch} (%{commit} - %{author}): %{message}"
