@@ -5,9 +5,9 @@
     .module('PLMApp')
     .factory('BuggleWorldView', BuggleWorldView);
 
-  BuggleWorldView.$inject = ['DefaultColors'];
+  BuggleWorldView.$inject = ['DefaultColors','$http'];
 
-  function BuggleWorldView(DefaultColors) {
+  function BuggleWorldView(DefaultColors,$http) {
 
     var ctx;
     var canvasWidth;
@@ -75,7 +75,6 @@
     var service = {
       draw: draw,
     };
-
     return service;
 
     function initUtils(canvas, buggleWorld) {
@@ -117,7 +116,9 @@
           drawBuggle(buggle, cell);
         }
       }
-      console.log(ctx);
+//	var image=canvas.toDataURL();
+//	$http.get("assets/app/models/universe/buggle/image.php?img="+image).success(function(data){console.log(data);});
+//GH
     }
 
     function drawCell(cell) {

@@ -131,8 +131,11 @@
     exercise.readTip = readTip;
 
     exercise.idle = false;
-    $scope.description = ""
+    //$scope.description = "aaaa"
     startIdleLoop();
+    exercise.animation="";
+    exercise.code ="";  
+    exercise.first_image = "";
 
     function signalIdle() {
       // User is away
@@ -179,16 +182,13 @@
 // ===============================================================
 
  $scope.saveData = function(){
-	      var args = {
-		      code: exercise.code
-        };
-        if ($scope.description !== "") {
-          args.description = $scope.description;
-            args.exerciseName = exercise.lessonName;
+	if(exercise.code!="" && exercise.animation!=""){
+	  var args = { code: exercise.code};
+          args.description = exercise.animation;
+          args.exerciseName = exercise.lessonName;
           connection.sendMessage('saveDescription', args);
-          Materialize.toast('Request sent to database!', 4000)
-        }
-
+          Materialize.toast('Request sent to database!', 4000);
+	}
     };
 
 
@@ -507,7 +507,7 @@
       exercise.instructions = instructions;
       exercise.api = $sce.trustAsHtml(api);
     }
-
+//=====================================================================================
     function setCurrentWorld(worldID, worldKind) {
       $timeout.cancel(exercise.updateModelLoop);
       stopUpdateViewLoop();
@@ -517,7 +517,8 @@
       $timeout(function () {
         exercise.currentState = exercise.currentWorld.currentState;
       }, 0);
-      exercise.drawService.setWorld(exercise.currentWorld);
+     var image =  exercise.drawService.setWorld(exercise.currentWorld);
+     exercise.first_image=image;
     }
 
     function runDemo() {
@@ -579,6 +580,7 @@
       exercise.executionStopped = false;
 
       $location.hash(exercise.drawingArea);
+console.log(exercise.drawingArea);
       $anchorScroll();
     }
 
@@ -697,16 +699,18 @@
         exercise.updateModelLoop = $timeout(updateModel, $scope.timer);
       }
     }
-
+//=====================================================================================
     function startUpdateViewLoop() {
+      exercise.animation=exercise.first_image; 
       exercise.updateViewLoop = $interval(updateView, 1 / 10);
       exercise.animationOnGoing = true;
     }
 
     function updateView() {
       if (exercise.lastStateDrawn !== exercise.currentWorld.currentState) {
-        exercise.drawService.update();
+        var img = exercise.drawService.update();
         exercise.lastStateDrawn = exercise.currentWorld.currentState;
+        exercise.animation+=" "+img;
       }
 
       if (!exercise.isPlaying) {
@@ -715,6 +719,8 @@
     }
 
     function stopUpdateViewLoop() {
+      $scope.saveData();
+      exercise.animation="";
       $interval.cancel(exercise.updateViewLoop);
       exercise.animationOnGoing = false;
     }
