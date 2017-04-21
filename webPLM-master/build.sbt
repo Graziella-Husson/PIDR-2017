@@ -29,13 +29,9 @@ libraryDependencies ++= Seq(
   "net.codingwell" %% "scala-guice" % "4.0.0-beta5",
   "codes.reactive" %% "scala-time-threeten" % "0.3.0-SNAPSHOT",
   "org.scalaj" %% "scalaj-http" % "1.1.5",
+  "org.reactivemongo" %% "play2-reactivemongo" % s"0.11.11-play24", // MongoDB dependencies
   cache,
   ws
-)
-
-// MongoDB dependencies
-libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "reactivemongo" % "0.11.11"
 )
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)

@@ -32,6 +32,7 @@ import Scalatime._
 import java.util.Properties
 import play.api.Play
 import play.api.Play.current
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object PLMActor {
   def props(executionManager: ExecutionManager, userAgent: String, actorUUID: String, gitID: String, newUser: Boolean, preferredLang: Option[Lang], lastProgLang: Option[String], trackUser: Option[Boolean])(out: ActorRef) = Props(new PLMActor(executionManager, userAgent, actorUUID, gitID, newUser, preferredLang, lastProgLang, trackUser, out))
@@ -86,6 +87,7 @@ class PLMActor (
   initExecutionManager
   initSpies
   registerActor
+
 
   def receive = {
     case msg: JsValue =>
@@ -151,6 +153,7 @@ class PLMActor (
               "exercise" -> LectureToJson.lectureWrites(lecture, plm.programmingLanguage, plm.getStudentCode, plm.getInitialWorlds, plm.getAnswerWorlds, plm.getSelectedWorldID)
             ))
           }
+//==========================
       	case "saveDescription" =>
       	  var optDescription: Option[String] = (msg \ "args" \ "description").asOpt[String]
       	  var optCode: Option[String] = (msg \ "args" \ "code").asOpt[String]
@@ -162,6 +165,13 @@ class PLMActor (
               logNonValidJSON("mongoService.insert: non-correctJSON", msg)
           }
       	  Logger.debug("Done inserting")
+
+	case "getAllMongo" =>
+		mongoService.getAll().foreach {e =>
+			sendMessage("getAll",e)
+		}
+		
+
         case "runExercise" =>
           var optLessonID: Option[String] = (msg \ "args" \ "lessonID").asOpt[String]
           var optExerciseID: Option[String] = (msg \ "args" \ "exerciseID").asOpt[String]

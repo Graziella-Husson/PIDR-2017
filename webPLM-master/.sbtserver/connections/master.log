@@ -1,7 +1,7 @@
-New log file opened at Sun May 15 13:50:26 CEST 2016 by 4690@linux.home
-Taking next connection to: 45954
-New client attempting to connect on port: 46846-45954
-  Address = /192.168.1.28:45954
-This client on port 46846 has uuid 466ad389-207a-408a-b19a-6e56a51b8e7e configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-466ad389-207a-408a-b19a-6e56a51b8e7e
-Taking next connection to: 45954
+New log file opened at Wed Apr 19 22:16:38 CEST 2017 by 17428@pidr-VM
+Taking next connection to: 44905
+New client attempting to connect on port: 40686-44905
+  Address = /127.0.1.1:44905
+This client on port 40686 has uuid 0eb0f3bf-5331-4af8-8bbd-a9ada3c54944 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-0eb0f3bf-5331-4af8-8bbd-a9ada3c54944
+Taking next connection to: 44905

@@ -191,6 +191,10 @@
 	}
     };
 
+   $scope.getAllData = function(){
+	connection.sendMessage('getAllMongo');
+         Materialize.toast('GetAll sent to database!', 4000);
+    };
 
 
     function handleMessage(data) {
@@ -198,6 +202,9 @@
       var cmd = data.cmd;
       var args = data.args;
       switch (cmd) {
+	case 'getAll':
+	console.log(args);
+	break;
       case 'exercise':
         setExercise(args.exercise);
         break;
@@ -720,6 +727,7 @@ console.log(exercise.drawingArea);
 
     function stopUpdateViewLoop() {
       $scope.saveData();
+	$scope.getAllData();
       exercise.animation="";
       $interval.cancel(exercise.updateViewLoop);
       exercise.animationOnGoing = false;
