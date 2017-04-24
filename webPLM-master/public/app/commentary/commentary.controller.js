@@ -10,7 +10,7 @@
   function Commentary($http, $scope, $state, $sce, langs, connection, listenersHandler, navigation, gettextCatalog) {
     var commentary = this;
 
-    commentary.lessons = [];
+    /*commentary.lessons = [];
     commentary.currentLesson = null;
     commentary.currentExerciseID = '';
 
@@ -24,7 +24,7 @@
     var offHandleMessage = listenersHandler.register('onmessage', handleMessage);
 
     getLessons();
-
+ */
     function handleMessage(data) {
       var cmd = data.cmd;
       var args = data.args;
@@ -37,22 +37,22 @@
         break;
       }
     }
-
+/*
     function getLessons() {
       connection.sendMessage('getLessons', null);
     }
 
     function setLessons(lessons) {
-      home.lessons = lessons.map(function (lesson) {
+      controller.lessons = lessons.map(function (lesson) {
         lesson.description = $sce.trustAsHtml(lesson.description);
         return lesson;
       });
-      home.currentLesson = null;
+      controller.currentLesson = null;
       console.log('updated commentary.lessons: ', commentary.lessons);
     }
 
     function setCurrentLesson(lesson) {
-      home.currentLesson = lesson;
+      controller.currentLesson = lesson;
     }
 
     function goToLesson() {
@@ -60,7 +60,7 @@
         'lessonID': commentary.currentLesson.id
       });
     }
-
+*/
     $scope.$on('$destroy', function () {
       offHandleMessage();
     });

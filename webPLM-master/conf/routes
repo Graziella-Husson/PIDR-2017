@@ -5,6 +5,7 @@
 # Home page
 GET     /                                                   @controllers.Application.index
 GET     /ui                                                 @controllers.Application.index
+GET     /ui/commentary                                         @controllers.Application.index
 GET     /ui/lessons                                         @controllers.Application.indexLessons
 GET     /ui/lessons/:lessonID                               @controllers.Application.lesson(lessonID: String)
 GET     /ui/lessons/:lessonID/*exerciseID                   @controllers.Application.exercise(lessonID: String, exerciseID: String)
@@ -20,4 +21,4 @@ GET     /authenticate/:provider                             @controllers.SocialA
 POST    /authenticate/:provider                             @controllers.SocialAuthController.authenticate(provider)
 
 # Websocket
-GET     /websocket                                          @controllers.ApplicationController.socket(token: Option[String])
+GET /websocket @controllers.ApplicationController.socket(token: Option[String])
