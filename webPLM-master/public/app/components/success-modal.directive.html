@@ -1,6 +1,6 @@
 <!-- Modal de victoire -->
 <div id="successModal" class="reveal-modal" data-reveal=true>
-  <h2 translate>Success \o/</h2>
+  <!-- ... --<h2 translate>Success \o/</h2>
   <p class="lead"><img src="/img/trophy.png"/ translate>Congratulations, you pass this exercise!</p>
   <span ng-if="exercisesList.getNextExerciseID() !== ''">
     <p translate>Do you want to try the next one?</p>
@@ -14,4 +14,5 @@
     <button ng-if="exercisesList.getNextExerciseID() === ''" class="center right" onclick="$('#successModal').foundation('reveal', 'close');" ui-sref="home" translate>Yes, sure</button>
     </span>
   <a class="close-reveal-modal">&#215;</a>
+>
 </div>

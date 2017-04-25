@@ -1,7 +1,0 @@
-New log file opened at Wed Apr 19 22:16:38 CEST 2017 by 17428@pidr-VM
-Taking next connection to: 44905
-New client attempting to connect on port: 40686-44905
-  Address = /127.0.1.1:44905
-This client on port 40686 has uuid 0eb0f3bf-5331-4af8-8bbd-a9ada3c54944 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-0eb0f3bf-5331-4af8-8bbd-a9ada3c54944
-Taking next connection to: 44905
