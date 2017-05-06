@@ -106,6 +106,7 @@
 .fi-hearing-aid:before,
 .fi-heart:before,
 .fi-home:before,
+.fi-commentary:before,
 .fi-html5:before,
 .fi-indent-less:before,
 .fi-indent-more:before,
@@ -400,6 +401,9 @@
 .fi-hearing-aid:before { content: "\f158"; }
 .fi-heart:before { content: "\f159"; }
 .fi-home:before { content: "\f15a"; }
+
+.fi-commentary:before { content: "\f15ab"; }
+
 .fi-html5:before { content: "\f15b"; }
 .fi-indent-less:before { content: "\f15c"; }
 .fi-indent-more:before { content: "\f15d"; }

@@ -53,26 +53,19 @@
   <div class="off-canvas-wrap" data-offcanvas>
     <div class="inner-wrap">
       <nav class="top-bar tab-bar">
-        
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+        </section>
 
         <section class="middle tab-bar-section">
           <span ui-sref="home" class="left hover">
-            <img style="width:30px;height:30px;" src="/assets/images/home.png">
-          </span>
-	  <span ui-sref="commentary" class="left hover">
-            <img style="margin-left:30px;width:30px;height:30px;" src="/assets/images/button_commentary.png">
-          </span>
-          <span>
-	  <span ui-sref="admin" class="left hover">
-            <img style="margin-left: 30px;width:30px;height:30px;" src="/assets/images/button_admin.png">
-          </span>
-          <span>
-	  <span ui-sref="help" class="left hover">
-            <img style="margin-left: 30px;width:30px;height:30px;" src="/assets/images/button_help.png">
+            <i class="fi-home">&nbsp;</i>
+            <strong>PLM</strong>
           </span>
           <span>
             <strong class="title">
               <span ng-cloak>{{ navigation.getCurrentPageTitle() }}</span>
+              <span ng-if="!navigation.getCurrentPageTitle()" translate>Loading...</span>
             </strong>
           </span>
         </section>
@@ -80,6 +73,9 @@
         <section class="top-bar-section show-for-medium-up">
           <!-- Right Nav Section -->
           <ul class="right">
+            <profile-top-bar></profile-top-bar>
+            <programming-languages></programming-languages>
+            <human-languages></human-languages>
           </ul>
         </section>
       </nav>
@@ -160,16 +156,19 @@
 <script type="text/javascript" src="/assets/app/services/user.service.js"></script>
 
 <!-- Application's components -->
-
+<script type="text/javascript" src="/assets/app/components/bug-report-modal.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/human-languages.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/profile-top-bar.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/programming-languages.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/success-modal.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/track-user-modal.directive.js"></script>
 <!-- Exercise's components -->
 <script type="text/javascript" src="/assets/app/components/exercise/animation-player.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/animation-speed.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/blockly.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/execution-results.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/form-common-error-feedback.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/exercise/human-description.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/ide.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/instructions.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/exercise/reset-exercise.directive.js"></script>
@@ -183,6 +182,13 @@
 <!-- Home's components -->
 <script type="text/javascript" src="/assets/app/components/home/lesson-gallery.directive.js"></script>
 <script type="text/javascript" src="/assets/app/components/home/lesson-overview.directive.js"></script>
+<!-- Menu's components -->
+<script type="text/javascript" src="/assets/app/components/menu/menu.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/menu/profile.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/menu/switch-exercise.directive.js"></script>
+<!-- Sign-in's components -->
+<script type="text/javascript" src="/assets/app/components/sign-in/sign-in-form.directive.js"></script>
+<script type="text/javascript" src="/assets/app/components/sign-in/social-buttons.directive.js"></script>
 
 <!-- Application's data models -->
 <script type="text/javascript" src="/assets/app/models/defaultcolors.factory.js"></script>
@@ -258,7 +264,7 @@
 <!-- Application's controllers -->
 <script type="text/javascript" src="/assets/app/home/home.controller.js"></script>
 <script type="text/javascript" src="/assets/app/commentary/commentary.controller.js"></script>
-<script type="text/javascript" src="/assets/app/admin/admin.controller.js"></script>
-<script type="text/javascript" src="/assets/app/help/help.controller.js"></script>
 <script type="text/javascript" src="/assets/app/exercise/exercise.controller.js"></script>
+<script type="text/javascript" src="/assets/app/profile/profile.controller.js"></script>
+<script type="text/javascript" src="/assets/app/sign-in/sign-in.controller.js"></script>
 </html>

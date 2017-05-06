@@ -23,6 +23,18 @@
         controller: 'Commentary',
         controllerAs: 'commentary'
       })
+	 .state('admin', {
+        url: '/ui/admin',
+        templateUrl: 'assets/app/admin/admin.html',
+        controller: 'Admin',
+        controllerAs: 'admin'
+      })
+	 .state('help', {
+        url: '/ui/help',
+        templateUrl: 'assets/app/help/help.html',
+        controller: 'Help',
+        controllerAs: 'help'
+      })
       .state('exercise', {
         url: '/ui/lessons/:lessonID/:exerciseID',
         templateUrl: 'assets/app/exercise/exercise.html',

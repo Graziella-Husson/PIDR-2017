@@ -3,9 +3,9 @@
 
   angular
     .module('PLMApp')
-    .controller('Commentary', Commentary);
+    .controller('Admin', Admin);
 
-  Commentary.$inject = [
+ Admin.$inject = [
 //'$http', '$scope', '$state', '$sce', 'langs', 'connection', 'listenersHandler', 'navigation', 'gettextCatalog'
  '$window', '$http', '$scope', '$sce', '$stateParams', '$location', '$anchorScroll',
   'connection', 'listenersHandler', 'langs', 'progLangs', 'exercisesList', 'navigation',
@@ -24,7 +24,7 @@
   'HanoiWorld', 'HanoiView'
 ];
 
-  function Commentary(
+  function Admin(
 //$http, $scope, $state, $sce, langs, connection, listenersHandler, navigation, gettextCatalog
  $window, $http, $scope, $sce, $stateParams, $location, $anchorScroll,
   connection, listenersHandler, langs, progLangs, exercisesList, navigation,
@@ -52,8 +52,8 @@ function handleMessage(data) {
 		console.log(args);
 	}
     }
-    var commentary = this;
-    commentary.connection=connection;
+    var admin = this;
+    admin.connection=connection;
           connection.sendMessage('getAllMongo');
           Materialize.toast('Request GetAll', 4000);
     
