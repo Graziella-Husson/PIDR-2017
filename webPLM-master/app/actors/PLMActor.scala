@@ -185,6 +185,7 @@ class PLMActor (
             case (_, _, _, _) =>
               logNonValidJSON("runExercise: non-correctJSON", msg)
           }
+
         case "stopExecution" =>
           plm.stopExecution
         case "revertExercise" =>

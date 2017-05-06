@@ -136,6 +136,7 @@
     exercise.animation="";
     exercise.code ="";  
     exercise.first_image = "";
+    exercise.save=false;
 
     function signalIdle() {
       // User is away
@@ -188,6 +189,7 @@
           args.exerciseName = exercise.lessonName;
           connection.sendMessage('saveDescription', args);
           Materialize.toast('Request sent to database!', 4000);
+	exercise.save=false;
 	}
     };
 
@@ -262,17 +264,19 @@
             case 'BuggleWorld':
               exercise.tabs = [
                 {
-                  name: 'World',
+                  name: 'Resultat graphique',
                   worldKind: 'current',
                   tabNumber: 0,
                   drawFnct: BuggleWorldView.draw
          },
+/*
                 {
                   name: 'Objective',
                   worldKind: 'answer',
                   tabNumber: 1,
                   drawFnct: BuggleWorldView.draw
          }
+*/
         ];
               exercise.objectiveViewNeeded = true;
               exercise.animationPlayerNeeded = true;
@@ -720,7 +724,9 @@ console.log(exercise.drawingArea);
     }
 
     function stopUpdateViewLoop() {
-      $scope.saveData();
+	if(exercise.save){
+     		$scope.saveData();
+	}
       exercise.animation="";
       $interval.cancel(exercise.updateViewLoop);
       exercise.animationOnGoing = false;
