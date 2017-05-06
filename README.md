@@ -27,22 +27,19 @@ Il s'agit du projet "PLM", s'inscrivant dans le cadre des recherches d'une des �
 La "Programmer's Learning Machine (PLM)" est une plateforme dédiée à l'apprentissage de l'informatique. 
 Cette plateforme permet aux professeurs de créer des environnements, des "mondes" simples pour apprendre à programmer.
 Elle contient un environnement graphique intégré, permettant d'avoir un aperçu du code créé par l'étudiant. Lui permettant ainsi d'être autonome et plus efficace.
-[visitez le site web de la PLM](http://www.loria.fr/~quinson/Teaching/PLM/).
+[Visitez le site web de la PLM](http://www.loria.fr/~quinson/Teaching/PLM/).
 
 Le projet webPLM a aussi été utilisé et modifié. Il s'agit d'une interface web pour le projet PLM. 
 Il utilise le [Play Framework](https://www.playframework.com/) comme back-end et [AngularJS](https://angularjs.org/) comme front-end.
 
 ### Prérequis et installation
 
-```
 D'abord, extraire l'archive de ce repository sur la machine censée faire office de serveur. 
 Le [Play Framework] doit être préalablement installé (https://www.playframework.com/documentation/2.3.x/Installing).
 S'assurer de la présence d'une instance de mongodb sur le serveur. Si ce n'est pas le cas, l'installer avec la commande ```apt-get install mongodb```
-```
 
 ###Lancement
 
-```
 Démarrer le service associé à mongodb à l'aide de la commande "service mongodb start"
 ATTENTION : il faut avoir 3GB de libre sur le disque pour lancer cette ligne de commande, mongodb réserve cet espace. Pour vérifier que cela a bien marché, utilisez la commande ```mongo```.
 
@@ -55,7 +52,6 @@ Pour accéder à l'application, aller à la page web <http://localhost:9000>
 Si vous voulez utiliser le port 8080 par exemple, utilisez ```activator "~run
 8080"```
 
-```
 
 ## License
 
