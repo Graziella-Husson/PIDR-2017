@@ -38,7 +38,7 @@ D'abord, extraire l'archive de ce repository sur la machine censée faire office
 Le [Play Framework] doit être préalablement installé (https://www.playframework.com/documentation/2.3.x/Installing).
 S'assurer de la présence d'une instance de mongodb sur le serveur. Si ce n'est pas le cas, l'installer avec la commande ```apt-get install mongodb```
 
-###Lancement
+### Lancement
 
 Démarrer le service associé à mongodb à l'aide de la commande "service mongodb start"
 ATTENTION : il faut avoir 3GB de libre sur le disque pour lancer cette ligne de commande, mongodb réserve cet espace. Pour vérifier que cela a bien marché, utilisez la commande ```mongo```.
