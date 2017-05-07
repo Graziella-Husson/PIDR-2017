@@ -170,7 +170,17 @@ class PLMActor (
 		mongoService.getAll().foreach {e =>
 			sendMessage("getAll",e)
 		}
-		
+	
+	case "saveComment" =>
+      	  var optCode: Option[String] = (msg \ "args" \ "code").asOpt[String]
+      	  var optCommentaire: Option[String] = (msg \ "args" \ "commentaire").asOpt[String]
+      	  var optExercice: Option[String] = (msg \ "args" \ "exerciseName").asOpt[String]
+          (optCode.getOrElse(None), optCommentaire.getOrElse(None), optExercice.getOrElse(None)) match {
+        	  case (code: String, commentaire: String, exerciseName : String) =>
+             		mongoService.updateDBComment(code, commentaire,exerciseName)
+          }
+      	  Logger.debug("Done inserting")
+
 
         case "runExercise" =>
           var optLessonID: Option[String] = (msg \ "args" \ "lessonID").asOpt[String]
