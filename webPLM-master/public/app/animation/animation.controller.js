@@ -23,7 +23,7 @@
   'HanoiWorld', 'HanoiView'
  ];
 
-  function Animation($window, $http, $scope, $sce, $stateParams, $location, $anchorScroll,
+function Animation($window, $http, $scope, $sce, $stateParams, $location, $anchorScroll,
     connection, listenersHandler, langs, progLangs, exercisesList, navigation,
     canvas, drawWithDOM,
     blocklyService,
@@ -38,17 +38,28 @@
     BaseballWorld, BaseballView, BaseballSecondView,
     HanoiWorld, HanoiView) {
 
-var animation=this;
-animation.animationObject = $stateParams.animationObject;
-animation.images = animation.animationObject.description;
-animation.toShow=animation.images.split(" ");
-for(i=0;i<animation.toShow.length;i++){
-//AJOUT DANS LE HTML 
-	var node = document.createElement("img");
-	node.src=animation.toShow[i];
-	document.getElementById("slider").appendChild(node);
-}
-console.log(animation.images);
-
-}
+	var animation=this;
+	animation.animationObject = $stateParams.animationObject;
+	animation.images = animation.animationObject.description;
+	animation.toShow=animation.images.split(" ");
+	animation.currentimg=0;
+	var divAnimation=document.getElementById("displayAnimation");
+	animation.timer = "";
+	animation.playAnimation=playAnimation;
+	playAnimation();
+	
+	function changeimage(){
+		if(animation.currentimg==animation.toShow.length-1){clearInterval(animation.timer);}
+		var node = document.createElement("img");
+		node.src=animation.toShow[animation.currentimg];
+		divAnimation.innerHTML="";
+	 	divAnimation.appendChild(node);
+		animation.currentimg+=1;
+	}
+	
+	function playAnimation(){
+		animation.currentimg=0;
+		animation.timer = setInterval(changeimage, 1000);
+	}
+    }
 })();
