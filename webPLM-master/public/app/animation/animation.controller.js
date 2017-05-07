@@ -40,8 +40,15 @@
 
 var animation=this;
 animation.animationObject = $stateParams.animationObject;
-console.log("Final Animation :");
-console.log(animation.animationObject);
+animation.images = animation.animationObject.description;
+animation.toShow=animation.images.split(" ");
+for(i=0;i<animation.toShow.length;i++){
+//AJOUT DANS LE HTML 
+	var node = document.createElement("img");
+	node.src=animation.toShow[i];
+	document.getElementById("slider").appendChild(node);
+}
+console.log(animation.images);
 
 }
 })();
