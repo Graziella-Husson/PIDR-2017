@@ -50,6 +50,13 @@
         },
         controller: 'Exercise',
         controllerAs: 'exercise'
+      })
+
+	 .state('animation', {
+	        url: '/ui/animation',
+	        templateUrl: 'assets/app/animation/animation.html',
+	        controller: 'Animation',
+	        controllerAs: 'animation'
       });
   }
 })();

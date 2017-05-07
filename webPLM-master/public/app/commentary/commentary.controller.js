@@ -6,41 +6,11 @@
     .controller('Commentary', Commentary);
 
   Commentary.$inject = [
-//'$http', '$scope', '$state', '$sce', 'langs', 'connection', 'listenersHandler', 'navigation', 'gettextCatalog'
- '$window', '$http', '$scope', '$sce', '$stateParams', '$location', '$anchorScroll',
-  'connection', 'listenersHandler', 'langs', 'progLangs', 'exercisesList', 'navigation',
-  'canvas', 'drawWithDOM',
-  'blocklyService',
-  '$timeout', '$interval',
-  'locker',
-  'BuggleWorld', 'BuggleWorldView',
-  'BatWorld', 'BatWorldView',
-  'TurtleWorld', 'TurtleWorldView',
-  'SortingWorld', 'SortingWorldView',
-  'SortingWorldSecondView',
-  'DutchFlagWorld', 'DutchFlagView', 'DutchFlagSecondView',
-  'PancakeWorld', 'PancakeView',
-  'BaseballWorld', 'BaseballView', 'BaseballSecondView',
-  'HanoiWorld', 'HanoiView'
+'$http', '$scope', '$state', '$sce', 'langs', 'connection', 'listenersHandler', 'navigation', 'gettextCatalog'
 ];
 
   function Commentary(
-//$http, $scope, $state, $sce, langs, connection, listenersHandler, navigation, gettextCatalog
- $window, $http, $scope, $sce, $stateParams, $location, $anchorScroll,
-  connection, listenersHandler, langs, progLangs, exercisesList, navigation,
- canvas, drawWithDOM,
-  blocklyService,
-  $timeout, $interval,
-  locker,
-  BuggleWorld, BuggleWorldView,
-  BatWorld, BatWorldView,
-  TurtleWorld, TurtleWorldView,
-  SortingWorld, SortingWorldView,
-  SortingWorldSecondView,
-  DutchFlagWorld, DutchFlagView, DutchFlagSecondView,
-  PancakeWorld, PancakeView,
-  BaseballWorld, BaseballView, BaseballSecondView,
-  HanoiWorld, HanoiView
+$http, $scope, $state, $sce, langs, connection, listenersHandler, navigation, gettextCatalog
 ) {
        
 
@@ -49,15 +19,34 @@ function handleMessage(data) {
       var cmd = data.cmd;
       var args = data.args;
 	if(cmd=="getAll"){
-		console.log(args);
+		args.forEach(function(entry) {
+    		commentary.animations.push(entry);
+		console.log(entry);
+	});	
 	}
     }
     var commentary = this;
     commentary.connection=connection;
+    commentary.animations = [];
+     commentary.currentAnimation = null;
+    commentary.setCurrentAnimation = setCurrentAnimation;
+    commentary.goToAnimation = goToAnimation;
+
+    var offHandleMessage = listenersHandler.register('onmessage', handleMessage);
+
           connection.sendMessage('getAllMongo');
           Materialize.toast('Request GetAll', 4000);
     
-    
-    
+ function goToAnimation(){
+	$state.go('animation');
+ }
+
+function setCurrentAnimation(animation){
+console.log(animation);
+commentary.currentAnimation = animation;
+}
+    $scope.$on('$destroy', function () {
+      offHandleMessage();
+    });
   }
 })();

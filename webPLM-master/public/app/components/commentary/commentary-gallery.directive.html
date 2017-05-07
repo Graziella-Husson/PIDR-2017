@@ -1,0 +1,9 @@
+<ul class="small-block-grid-3 medium-block-grid-3 large-block-grid-4" ng-show="commentary.animations.length">
+	<li ng-repeat="animation in commentary.animations"> <!-- Order by descending id -->
+    <div class="lesson-th">
+		  <a ng-dblclick="commentary.goToAnimation()" ng-click="commentary.setCurrentAnimation(animation)" class="th radius" role="button">
+		    <img ng-src="/assets/images/animation.png"/>
+		  </a>
+	  </div>
+	</li>
+</ul>
