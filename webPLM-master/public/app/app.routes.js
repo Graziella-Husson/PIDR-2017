@@ -55,6 +55,12 @@
 	 .state('animation', {
 	        url: '/ui/animation',
 	        templateUrl: 'assets/app/animation/animation.html',
+		params:{
+		   animationObject:{
+			value:null,
+			squash:true
+		    }
+		},
 	        controller: 'Animation',
 	        controllerAs: 'animation'
       });

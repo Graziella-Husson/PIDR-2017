@@ -37,5 +37,11 @@
     PancakeWorld, PancakeView,
     BaseballWorld, BaseballView, BaseballSecondView,
     HanoiWorld, HanoiView) {
+
+var animation=this;
+animation.animationObject = $stateParams.animationObject;
+console.log("Final Animation :");
+console.log(animation.animationObject);
+
 }
 })();

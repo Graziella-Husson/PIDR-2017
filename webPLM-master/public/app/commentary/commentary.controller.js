@@ -21,7 +21,6 @@ function handleMessage(data) {
 	if(cmd=="getAll"){
 		args.forEach(function(entry) {
     		commentary.animations.push(entry);
-		console.log(entry);
 	});	
 	}
     }
@@ -38,12 +37,13 @@ function handleMessage(data) {
           Materialize.toast('Request GetAll', 4000);
     
  function goToAnimation(){
-	$state.go('animation');
+	$state.go('animation',{
+        'animationObject': commentary.currentAnimation
+});
  }
 
 function setCurrentAnimation(animation){
-console.log(animation);
-commentary.currentAnimation = animation;
+	commentary.currentAnimation = animation;
 }
     $scope.$on('$destroy', function () {
       offHandleMessage();
