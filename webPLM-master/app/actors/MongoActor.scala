@@ -47,17 +47,30 @@ def updateDBComment(code : String, commentaire : String, exerciseName : String){
 	collection = db.collection("codeAndCommentsFinal")
 
 	val query = BSONDocument("code" -> code, "exercice" -> exerciseName)
-	val result = collection.find(query).cursor[JsObject]
-	//result.enumerate().apply(Iteratee.map{doc =>
-		//var oldComm = doc.getAs[String]("commentaire")})
-	val selector = BSONDocument("code" -> code, "exercice" -> exerciseName)
-	val modifier = BSONDocument(
+
+val cursor: Cursor[JsObject] = collection.find(Json.obj("code" -> code, "exercice" -> exerciseName)).cursor[JsObject]
+    var oldComm = ""
+    var realoldComm = ""
+    var futureList: Future[List[JsObject]] = cursor.collect[List]()
+    futureList.map { result =>
+	var commObject : JsObject = result.lift(0) match {
+		case None => JsObject(Seq.empty)
+		case Some(s: JsObject) => s 
+       }
+	  oldComm = commObject.value("commentaire").toString 
+    }	
+		Thread.sleep(1000)
+      realoldComm = oldComm slice (1, oldComm.length()-1)
+    var newComm : String = realoldComm+"|NEWCOMM|"+commentaire
+   	Logger.info(newComm)
+	var selector = BSONDocument("code" -> code, "exercice" -> exerciseName)
+	var modifier = BSONDocument(
   		"$set" -> BSONDocument(
     		"code" -> code,
-    		"commentaire" -> commentaire,
+    		"commentaire" -> newComm,
     		"exercice" -> exerciseName))
 
-	val futureUpdate1 = collection.update(selector, modifier,multi=false, upsert=true)  
+	var futureUpdate1 = collection.update(selector, modifier,multi=false, upsert=true)  
 	
 	  
 	collection = firstDB
