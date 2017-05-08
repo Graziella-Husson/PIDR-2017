@@ -1,14 +1,25 @@
-<div class="row">
-  <h1 translate>Page admin<small></small></h1>
-  <hr/>
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
+
+<div class="row" style="height:90%;margin-left:5%;margin-right:5%;position: absolute;bottom:0;display: flex; justify-content: space-between;">
+		<div class="flex-block">
+			<h1>Page Admin</h1>
+	  		<hr/>
+			<table id="admin_table">
+				<tr><th>Exercise Name</th><th>Code</th><th>Descriptions</th></tr>
+			</table> 
+		</div>
+	</div>
 </div>
 
-<div class="row" data-equalizer=true>
-  <div class="small-12 medium-6 columns">
-    <lesson-gallery></lesson-gallery>
-  </div>
 
-  <div class="small-12 medium-6 columns">
-    <lesson-overview></lesson-overview>
-  </div>
-</div> <!--  /.row equalizer -->
+
+
+

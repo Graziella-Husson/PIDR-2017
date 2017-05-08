@@ -527,8 +527,8 @@
     }
 
     function runDemo() {
-      exercise.updateViewLoop = null;
       exercise.isPlaying = true;
+      exercise.updateViewLoop = null;
       exercise.worldIDs.map(function (key) {
         reset(key, 'answer', true);
       });
@@ -546,47 +546,50 @@
       }
     }
 
-    function runCode(worldID) {
-      var args;
-      exercise.result = '';
-      exercise.resultType = null;
-      exercise.updateViewLoop = null;
-      exercise.isPlaying = true;
-      exercise.worldIDs.map(function (key) {
-        reset(key, 'current', false);
-      });
-      setCurrentWorld(worldID, 'current');
-      exercise.tabs.map(function (element) {
-        if (element.worldKind === 'current' && element.drawFnct === exercise.drawFnct) {
-          exercise.currentTab = element.tabNumber;
-        }
-      })
-      if (exercise.ide === 'blockly') {
-        Blockly.Python.INFINITE_LOOP_TRAP = null;
-        exercise.code = Blockly.Python.workspaceToCode();
-        var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
-        exercise.studentCode = Blockly.Xml.domToText(xml);
-
-        args = {
-          lessonID: exercise.lessonID,
-          exerciseID: exercise.id,
-          code: exercise.code,
-          workspace: exercise.studentCode
-        };
-      } else {
-        args = {
-          lessonID: exercise.lessonID,
-          exerciseID: exercise.id,
-          code: exercise.code
-        };
-      }
-      connection.sendMessage('runExercise', args);
-      exercise.isRunning = true;
-      exercise.executionStopped = false;
-
-      $location.hash(exercise.drawingArea);
-console.log(exercise.drawingArea);
-      $anchorScroll();
+    function runCode(worldID, save_bool) {
+	if(exercise.isPlaying === false) {
+		exercise.save=save_bool;
+		exercise.isPlaying = true;
+		var args;
+		exercise.result = '';
+		exercise.resultType = null;
+		exercise.updateViewLoop = null;
+		exercise.worldIDs.map(function (key) {
+			reset(key, 'current', false);
+		});
+		setCurrentWorld(worldID, 'current');
+		exercise.tabs.map(function (element) {
+			if (element.worldKind === 'current' && element.drawFnct === exercise.drawFnct) {
+		  		exercise.currentTab = element.tabNumber;
+			}
+		})
+		if (exercise.ide === 'blockly') {
+			Blockly.Python.INFINITE_LOOP_TRAP = null;
+			exercise.code = Blockly.Python.workspaceToCode();
+			var xml = Blockly.Xml.workspaceToDom(Blockly.getMainWorkspace());
+			exercise.studentCode = Blockly.Xml.domToText(xml);
+		
+			args = {
+			  lessonID: exercise.lessonID,
+			  exerciseID: exercise.id,
+			  code: exercise.code,
+			  workspace: exercise.studentCode
+			};
+		} else {
+			args = {
+		  	lessonID: exercise.lessonID,
+		  	exerciseID: exercise.id,
+		  	code: exercise.code
+			};
+		}
+		connection.sendMessage('runExercise', args);
+		exercise.isRunning = true;
+		exercise.executionStopped = false;
+		
+		$location.hash(exercise.drawingArea);
+		console.log(exercise.drawingArea);
+		$anchorScroll();
+  	  }
     }
 
     function stopExecution() {
