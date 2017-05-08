@@ -48,14 +48,16 @@ function handleMessage(data) {
       console.log('message received: ', data);
       var cmd = data.cmd;
       var args = data.args;
-	if(cmd=="getAll"){
+	if(cmd=="getAllAdmin"){
 		console.log(args);
+		//TODO : dispatch in table
 	}
     }
+    var offHandleMessage = listenersHandler.register('onmessage', handleMessage);
     var admin = this;
     admin.connection=connection;
-          connection.sendMessage('getAllMongo');
-          Materialize.toast('Request GetAll', 4000);
+          connection.sendMessage('getAllAdminMongo');
+          Materialize.toast('Request GetAllAdmin', 4000);
     
     
     

@@ -41,6 +41,15 @@ def getAll(): Future[JsArray] = {
   collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
 }
 
+def getAllAdmin(): Future[JsArray] = {
+  type ResultType = JsObject // any type which is provided a `Writes[T]
+  val firstDB = collection
+  collection = db.collection("codeAndCommentsFinal")
+  var result=collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
+  collection = firstDB
+  result
+}
+
 //TODO CC
 def updateDBComment(code : String, commentaire : String, exerciseName : String){
 	val firstDB = collection

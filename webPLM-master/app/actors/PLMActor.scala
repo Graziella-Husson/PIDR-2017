@@ -170,7 +170,12 @@ class PLMActor (
 		mongoService.getAll().foreach {e =>
 			sendMessage("getAll",e)
 		}
-	
+
+	case "getAllAdminMongo" =>
+		mongoService.getAllAdmin().foreach {e =>
+			sendMessage("getAllAdmin",e)
+		}	
+
 	case "saveComment" =>
       	  var optCode: Option[String] = (msg \ "args" \ "code").asOpt[String]
       	  var optCommentaire: Option[String] = (msg \ "args" \ "commentaire").asOpt[String]
