@@ -53,7 +53,8 @@ function handleMessage(data) {
 		args.forEach(function(entry) {
 			var code=entry.code
 			var exerc_name=entry.exercice
-			var comments=entry.commentaire.replace("|NEWCOMM|", "-----<br>")+"<br>"; 
+			//var comments=entry.commentaire.replace("|NEWCOMM|", "-----<br>")+"<br>"; 
+			var comments=entry.commentaire.replace(new RegExp("\\|", "g"), "<br>-----<br>");
 			var row_html = document.createElement("tr");
 
 			var exerc_name_html=document.createElement("td");
