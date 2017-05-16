@@ -154,7 +154,9 @@ class PLMActor (
             ))
           }
 //==========================
-      	case "saveDescription" =>
+      	//il s'agit du cas où le handler reçoit un message de type "saveDescription" soit après l'enregistrement d'une vidéo
+	//on récupère le message en question et on réalise l'insertion dans la base MongoDB
+	case "saveDescription" =>
       	  var optDescription: Option[String] = (msg \ "args" \ "description").asOpt[String]
       	  var optCode: Option[String] = (msg \ "args" \ "code").asOpt[String]
           var optExerciseName: Option[String] = (msg \ "args" \ "exerciseName").asOpt[String]
@@ -165,6 +167,7 @@ class PLMActor (
               logNonValidJSON("mongoService.insert: non-correctJSON", msg)
           }
       	  Logger.debug("Done inserting")
+	//
 
 	case "getAllMongo" =>
 		mongoService.getAll().foreach {e =>
@@ -176,6 +179,7 @@ class PLMActor (
 			sendMessage("getAllAdmin",e)
 		}	
 
+	//il s'agit du cas où le handler reçoit un message du type "saveComment" soit après l'enregistrement d'un commentaire
 	case "saveComment" =>
       	  var optCode: Option[String] = (msg \ "args" \ "code").asOpt[String]
       	  var optCommentaire: Option[String] = (msg \ "args" \ "commentaire").asOpt[String]
@@ -185,7 +189,7 @@ class PLMActor (
              		mongoService.updateDBComment(code, commentaire,exerciseName)
           }
       	  Logger.debug("Done inserting")
-
+	//
 
         case "runExercise" =>
           var optLessonID: Option[String] = (msg \ "args" \ "lessonID").asOpt[String]

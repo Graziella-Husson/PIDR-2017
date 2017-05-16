@@ -48,7 +48,6 @@
         return lesson;
       });
       home.currentLesson = null;
-      console.log('updated home.lessons: ', home.lessons);
     }
 
     function setCurrentLesson(lesson) {

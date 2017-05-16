@@ -83,7 +83,6 @@ function Animation($window, $http, $scope, $sce, $stateParams, $location, $ancho
 	function saveComment(){
 	var commentaire = document.getElementById("comment").value ;
 		animation.commentaire = commentaire;
-		console.log(commentaire);
 		if(animation.commentaire!=""){
 		  var args = { code: animation.animationObject.code};
 	          args.commentaire = animation.commentaire;
