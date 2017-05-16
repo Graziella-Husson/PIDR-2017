@@ -195,19 +195,18 @@ public class BuggleWorldCell extends GridWorldCell {
 	/* This function is called as answer.diffTo(current) */
 	public String diffTo(BuggleWorldCell current) {
 		StringBuffer sb = new StringBuffer();
-		if (! hasBaggle && current.hasBaggle) 
-			sb.append(getWorld().getGame().i18n.tr(", there shouldn't be this baggle"));
-		if (  hasBaggle && ! current.hasBaggle)
-			sb.append(getWorld().getGame().i18n.tr(", there should be a baggle"));
+		/*if (! hasBaggle && current.hasBaggle) 
+			sb.append(getWorld().getGame().i18n.tr(", there shouldn't be this baggle"));*/
+		/*if (  hasBaggle && ! current.hasBaggle)
+			sb.append(getWorld().getGame().i18n.tr(", there should be a baggle"));*/
 		if (color == null) {
-			if (current.color != null)
-				sb.append(getWorld().getGame().i18n.tr(", the ground should not be {0}",ColorMapper.color2translated(current.color,getWorld().getGame().i18n)));
+			if (current.color != null){}
+				//sb.append(getWorld().getGame().i18n.tr(", the ground should not be {0}",ColorMapper.color2translated(current.color,getWorld().getGame().i18n)));
 		} else if (!color.equals(current.color)) {
-			sb.append(getWorld().getGame().i18n.tr(", the ground is expected to be {0}, but it is {1}", 
-					ColorMapper.color2translated(color, getWorld().getGame().i18n), ColorMapper.color2translated(current.color, getWorld().getGame().i18n)));
+			//sb.append(getWorld().getGame().i18n.tr(", the ground is expected to be {0}, but it is {1}", ColorMapper.color2translated(color, getWorld().getGame().i18n), ColorMapper.color2translated(current.color, getWorld().getGame().i18n)));
 		}
-		if (!content.equals(current.content))
-			sb.append(getWorld().getGame().i18n.tr(", the ground reads ''{0}'' (expected: ''{1}'')", current.content, content));
+		if (!content.equals(current.content)){}
+			//sb.append(getWorld().getGame().i18n.tr(", the ground reads ''{0}'' (expected: ''{1}'')", current.content, content));
 		if (leftWall != current.leftWall)
 			if (current.leftWall)
 				sb.append(getWorld().getGame().i18n.tr(", there shouldn't be any wall at west"));

@@ -107,7 +107,9 @@ public abstract class Exercise extends Lecture {
 						}
 					}
 					String diff = answerWorld.get(i).diffTo(currentWorld.get(i));
-					lastResult.executionError += getGame().i18n.tr("The world ''{0}'' differs",currentWorld.get(i).getName());
+					//ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					//lastResult.executionError += getGame().i18n.tr("","");
+					//PLUS ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					if (diff != null) 
 						lastResult.executionError += ":\n"+diff;
 					lastResult.executionError += "\n------------------------------------------\n";

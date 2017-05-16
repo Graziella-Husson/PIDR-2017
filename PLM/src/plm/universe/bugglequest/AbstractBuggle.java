@@ -579,8 +579,8 @@ public abstract class AbstractBuggle extends Entity {
 			sb.append(getGame().i18n.tr("    The color of its brush is {0}; expected: {1}.\n",other.getBrushColor(),getBrushColor()));
 		if (isCarryingBaggle() && !other.isCarryingBaggle())
 			sb.append(getGame().i18n.tr("    It should not carry that baggle.\n"));
-		if (!isCarryingBaggle() && other.isCarryingBaggle())
-			sb.append(getGame().i18n.tr("    It is not carrying any baggle.\n"));
+		/*if (!isCarryingBaggle() && other.isCarryingBaggle())
+			sb.append(getGame().i18n.tr("    It is not carrying any baggle.\n"));*/
 		if (haveSeenError() && other.haveSeenError())
 			sb.append(getGame().i18n.tr("    It encountered an issue, such as bumping into a wall.\n"));
 		if (haveSeenError() && !other.haveSeenError())
