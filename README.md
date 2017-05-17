@@ -57,7 +57,7 @@ Pour vider les bases de données, une fois que l'on a relevé une partie du corp
 * lancez dans un terminal la commande ```mongo```
 * utilisez la commande ```use dbPLM```
 * Pour vider la base de données contenant les animations, utilisez la commande ```db.Animations.remove({})```
-* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndCommentes.remove({})```
+* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndComments.remove({})```
 * Il est conseiller de vider les deux bases, et de ne pas en laisser une vide quand l'autre est toujours pleine.
 
 ### Visualiser le contenu des bases de données
@@ -65,7 +65,7 @@ Si toutefois vous voulez visualiser les données de chaque base de données, vou
 * lancez dans un terminal la commande ```mongo```
 * utilisez la commande ```use dbPLM```
 * Pour vider la base de données contenant les animations, utilisez la commande ```db.Animations.find()```
-* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndCommentes.find()```
+* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndComments.find()```
 
 ## License
 
