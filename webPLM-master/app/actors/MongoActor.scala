@@ -25,8 +25,8 @@ class MongoActor (){
 
 	val driver = new MongoDriver
 	val connection = driver.connection(List("localhost"))
-	val db = connection.db("dbPLMDescription")
-	var collection = db.collection("codeToDescription")
+	val db = connection.db("dbPLM")
+	var collection = db.collection("Animations")
 	
 	def insert(description: String, code: String, exerciseName: String){
 		var selector = BSONDocument("code" -> code, "exercice" -> exerciseName)
@@ -41,7 +41,7 @@ class MongoActor (){
 		//Inject Comment item if none exists for same code and exercise
 		val firstDB = collection
 		var emptyStr=""
-		collection = db.collection("codeAndCommentsFinal")
+		collection = db.collection("codeAndComments")
 		selector = BSONDocument("code" -> code, "exercice" -> exerciseName)
 		modifier = BSONDocument(
 			"$setOnInsert" -> BSONDocument(
@@ -61,7 +61,7 @@ class MongoActor (){
 	def getAllAdmin(): Future[JsArray] = {
 		type ResultType = JsObject // any type which is provided a `Writes[T]
 		val firstDB = collection
-		collection = db.collection("codeAndCommentsFinal")
+		collection = db.collection("codeAndComments")
 		var result=collection.find(Json.obj()).cursor[ResultType](ReadPreference.primary).jsArray()
 		collection = firstDB
 		result
@@ -69,7 +69,7 @@ class MongoActor (){
 
 	def updateDBComment(code : String, commentaire : String, exerciseName : String){
 		val firstDB = collection
-		collection = db.collection("codeAndCommentsFinal")
+		collection = db.collection("codeAndComments")
 	
 		val query = BSONDocument("code" -> code, "exercice" -> exerciseName)
 	

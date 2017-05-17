@@ -52,13 +52,21 @@ Pour accéder à l'application, aller à la page web <http://localhost:9000>
 Si vous voulez utiliser le port 8080 par exemple, utilisez ```activator "~run
 8080"```
 
+### Vider les bases de données
+Pour vider les bases de données, une fois que l'on a relevé une partie du corpus par exemple, suivez le tutoriel suivant :
+* lancez dans un terminal la commande ```mongo```
+* utilisez la commande ```use dbPLM```
+* Pour vider la base de données contenant les animations, utilisez la commande ```db.Animations.remove({})```
+* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndCommentes.remove({})```
+* Il est conseiller de vider les deux bases, et de ne pas en laisser une vide quand l'autre est toujours pleine.
+
+### Visualiser le contenu des bases de données
+Si toutefois vous voulez visualiser les données de chaque base de données, vous pouvez effectuer les commandes suivantes :
+* lancez dans un terminal la commande ```mongo```
+* utilisez la commande ```use dbPLM```
+* Pour vider la base de données contenant les animations, utilisez la commande ```db.Animations.find()```
+* Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndCommentes.find()```
 
 ## License
 
 Ce projet est sous license MIT 
-
-## Sources
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
