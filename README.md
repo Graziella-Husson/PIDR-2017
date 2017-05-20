@@ -67,8 +67,10 @@ Si toutefois vous voulez visualiser les données de chaque base de données, vou
 * Pour vider la base de données contenant les animations, utilisez la commande ```db.Animations.find()```
 * Pour vider la base de données contenant les commentaires et le code associé, utilisez la commande ```db.codeAndComments.find()```
 
-###Extraire les commentaires de la base de données
-Utiliser la commande, dans la racine du projet, ./extract.sh. Cela générera un fichier nommé corpus.json qui contiendra l'ensemble des commentaires avec le code.
+### Extraire les commentaires de la base de données
+Si vous voulez avoir un fichier .json contenant les commentaires et le code associé : 
+* Utilisez la commande, dans la racine du projet, ```./extract.sh```. 
+* Cela générera un fichier nommé corpus.json qui contiendra l'ensemble des commentaires avec le code.
 
 ## License
 
